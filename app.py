@@ -153,16 +153,18 @@ except Exception as e:
 with open("nauphk.png", "rb") as img_file:
     img_bytes = base64.b64encode(img_file.read()).decode()
 
-# Ambil preferensi tema pengguna (default 'light' jika tidak diketahui)
+# --- Deteksi tema aktif ---
 theme = st.get_option("theme.base") or "light"
 
-# Tentukan efek blending sesuai mode
+# --- Tentukan gaya berdasarkan tema ---
 if theme == "dark":
-    blend_mode = "lighten"  # supaya terang di mode gelap
+    blend_mode = "lighten"
+    filter_effect = "brightness(1.1) contrast(1.2)"
 else:
-    blend_mode = "normal"   # tampil natural di mode terang
+    blend_mode = "normal"
+    filter_effect = "brightness(0.95) contrast(1)"
 
-# Tampilkan di sidebar
+# --- Tampilkan logo dengan animasi transisi ---
 with st.sidebar:
     st.markdown(
         f"""
@@ -170,18 +172,38 @@ with st.sidebar:
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -5px;   /* geser lebih ke atas */
-            margin-bottom: 10px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            animation: fadeIn 1.2s ease-in-out;
         ">
             <img 
                 src="data:image/png;base64,{img_bytes}" 
-                width="140"
-                style="background-color: transparent; mix-blend-mode: {blend_mode};"
+                width="150"
+                style="
+                    background-color: transparent;
+                    mix-blend-mode: {blend_mode};
+                    filter: {filter_effect};
+                    transition: all 0.6s ease-in-out;
+                "
             >
         </div>
+
+        <style>
+        /* Efek fade-in saat reload atau transisi */
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateY(-10px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
+        }}
+
+        /* Efek transisi halus waktu tema berubah */
+        [data-testid="stSidebar"] img {{
+            transition: filter 0.6s ease-in-out, mix-blend-mode 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        }}
+        </style>
         """,
         unsafe_allow_html=True
     )
+
     
     # Theme toggle
     st.markdown("---")
@@ -836,6 +858,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
