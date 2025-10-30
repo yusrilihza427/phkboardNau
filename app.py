@@ -33,66 +33,94 @@ def load_custom_css(theme):
             transition: all 0.4s ease-in-out;
         }
 
-        /* Sidebar */
         section[data-testid="stSidebar"] {
             background: linear-gradient(180deg, #1a1a23 0%, #0e1117 100%) !important;
-            color: #fafafa !important;
-            border-right: 1px solid #2b2b36;
+            border-right: 1px solid #2b2b36 !important;
+        }
+
+        .block-container {
+            background-color: #0e1117 !important;
         }
 
         /* Metric Cards */
-        div[data-testid="stMetricValue"], div[data-testid="stMetricLabel"] {
-            color: #fafafa !important;
-        }
-
         div[data-testid="stMetric"] {
             background: #1e1e26 !important;
+            color: #fafafa !important;
             border-radius: 12px !important;
             padding: 20px 10px !important;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
         div[data-testid="stMetric"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
-        /* Tabs and DataFrame */
+        /* Tabs */
         .stTabs [role="tablist"] button {
             background-color: #1e1e26 !important;
             color: #fafafa !important;
             border-radius: 8px;
             margin-right: 6px;
         }
-
         .stTabs [role="tablist"] button[aria-selected="true"] {
-            background-color: #2c2f3a !important;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
             color: #ffffff !important;
         }
 
-        .stDataFrame {
-            background-color: #1e1e26 !important;
-            color: #fafafa !important;
-            border-radius: 8px;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, label {
+        h1, h2, h3, h4, h5, h6, label, p {
             color: #fafafa !important;
         }
+        </style>
+        """, unsafe_allow_html=True)
 
-        /* Buttons */
-        button {
-            color: white !important;
-            background: linear-gradient(135deg, #667eea, #764ba2) !important;
-            border: none !important;
-            border-radius: 10px !important;
+    else:  # Light Mode
+        st.markdown("""
+        <style>
+        html, body, [class*="css"] {
+            background-color: #f9fafc !important;
+            color: #1a1a1a !important;
+            transition: all 0.4s ease-in-out;
+        }
+
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%) !important;
+            border-right: 1px solid #dcdcdc !important;
+        }
+
+        .block-container {
+            background-color: #ffffff !important;
+        }
+
+        /* Metric Cards */
+        div[data-testid="stMetric"] {
+            background: #ffffff !important;
+            color: #1a1a1a !important;
+            border-radius: 12px !important;
+            padding: 20px 10px !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
-        button:hover {
-            background: linear-gradient(135deg, #5568c9, #653d8f) !important;
-            transform: scale(1.03);
+        div[data-testid="stMetric"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
         }
 
+        /* Tabs */
+        .stTabs [role="tablist"] button {
+            background-color: #f4f5f8 !important;
+            color: #1a1a1a !important;
+            border-radius: 8px;
+            margin-right: 6px;
+        }
+        .stTabs [role="tablist"] button[aria-selected="true"] {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            color: white !important;
+        }
+
+        h1, h2, h3, h4, h5, h6, label, p {
+            color: #1a1a1a !important;
+        }
         </style>
         """, unsafe_allow_html=True)
 
@@ -857,6 +885,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
