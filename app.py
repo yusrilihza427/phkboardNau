@@ -151,8 +151,14 @@ except Exception as e:
 
 # Sidebar
 with st.sidebar:
-    st.image("pngPHK.png", width=130)
-    st.title("")
+    st.markdown(
+        """
+        <div style="display: flex; justify-content: center;">
+            <img src="pngPHK.png" width="150">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
     # Theme toggle
     st.markdown("---")
@@ -807,6 +813,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
