@@ -150,25 +150,32 @@ except Exception as e:
     st.stop()
 
 # Sidebar
+import base64
+
+# Baca file gambar dan ubah jadi base64 string
+with open("nauphk.png", "rb") as img_file:
+    img_bytes = base64.b64encode(img_file.read()).decode()
+
+# Sidebar logo di tengah
 with st.sidebar:
-    if st.session_state.theme == "Dark":
-        st.markdown("<div style='display:flex; justify-content:center; align-items:center;'>", unsafe_allow_html=True)
-        st.image("nauphk.png", width=150)
-        st.markdown(
-            """
-            <style>
-            [data-testid="stSidebar"] img {
-                filter: brightness(0.8) contrast(1.2) invert(1);
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
-    else:
-        st.markdown("<div style='display:flex; justify-content:center; align-items:center;'>", unsafe_allow_html=True)
-        st.image("nauphk.png", width=150)
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        ">
+            <img 
+                src="data:image/png;base64,{img_bytes}" 
+                width="150"
+                style="background-color: transparent; mix-blend-mode: lighten;"
+            >
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
     # Theme toggle
     st.markdown("---")
@@ -823,6 +830,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
