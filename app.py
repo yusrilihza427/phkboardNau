@@ -94,6 +94,27 @@ def load_custom_css(theme):
         </style>
         """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* Animasi fade-in untuk konten utama setiap kali tab berubah */
+[data-testid="stVerticalBlock"] > div {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Definisi animasi */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 
 
@@ -786,6 +807,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
