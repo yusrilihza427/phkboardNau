@@ -153,7 +153,7 @@ except Exception as e:
 with st.sidebar:
     st.markdown(
         """
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 15px; margin-bottom: 10px;">
             <img src="pngPHK.png" width="150">
         </div>
         """,
@@ -813,6 +813,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
