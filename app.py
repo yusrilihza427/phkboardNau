@@ -124,77 +124,7 @@ def load_custom_css(theme):
         </style>
         """, unsafe_allow_html=True)
 
-    else:  # Light Mode
-        st.markdown("""
-        <style>
-        html, body, [class*="css"] {
-            background-color: #f9fafc !important;
-            color: #1a1a1a !important;
-            transition: all 0.4s ease-in-out;
-        }
 
-        /* Sidebar */
-        section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #ffffff 0%, #f3f4f7 100%) !important;
-            color: #1a1a1a !important;
-            border-right: 1px solid #e0e0e0;
-        }
-
-        /* Metric Cards */
-        div[data-testid="stMetricValue"], div[data-testid="stMetricLabel"] {
-            color: #1a1a1a !important;
-        }
-
-        div[data-testid="stMetric"] {
-            background: #ffffff !important;
-            border-radius: 12px !important;
-            padding: 20px 10px !important;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        div[data-testid="stMetric"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Tabs and DataFrame */
-        .stTabs [role="tablist"] button {
-            background-color: #ffffff !important;
-            color: #1a1a1a !important;
-            border-radius: 8px;
-            margin-right: 6px;
-        }
-
-        .stTabs [role="tablist"] button[aria-selected="true"] {
-            background-color: #eceffd !important;
-            color: #2c3e9e !important;
-        }
-
-        .stDataFrame {
-            background-color: #ffffff !important;
-            color: #1a1a1a !important;
-            border-radius: 8px;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, label {
-            color: #1a1a1a !important;
-        }
-
-        /* Buttons */
-        button {
-            color: white !important;
-            background: linear-gradient(135deg, #667eea, #764ba2) !important;
-            border: none !important;
-            border-radius: 10px !important;
-            transition: all 0.3s ease;
-        }
-        button:hover {
-            background: linear-gradient(135deg, #5568c9, #653d8f) !important;
-            transform: scale(1.03);
-        }
-
-        </style>
-        """, unsafe_allow_html=True)
 
 
 # Load data with caching
@@ -885,6 +815,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
