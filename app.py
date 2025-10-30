@@ -151,7 +151,7 @@ except Exception as e:
 
 # Sidebar
 with st.sidebar:
-    st.image("https://github.com/yusrilihza427/phkboardNau/blob/main/Gambar1.jpg", width=100)
+    st.image("Gambar1.jpg", width=100)
     st.title("")
     
     # Theme toggle
@@ -807,6 +807,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
