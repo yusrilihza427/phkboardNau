@@ -151,14 +151,8 @@ except Exception as e:
 
 # Sidebar
 with st.sidebar:
-    st.markdown(
-        """
-        <div style="display: flex; justify-content: center;">
-            <img src="pngPHK.png" width="130">
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.image("pngPHK.png", width=130)
+    st.title("")
     
     # Theme toggle
     st.markdown("---")
