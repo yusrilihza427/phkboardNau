@@ -146,7 +146,7 @@ with st.sidebar:
     selected_industries = st.multiselect(
         "Pilih Industri",
         options=industries,
-        default=industries[:5] if len(industries) > 5 else industries
+        default=industries
     )
     
     # Country filter
@@ -154,7 +154,7 @@ with st.sidebar:
     selected_countries = st.multiselect(
         "Pilih Negara",
         options=countries,
-        default=countries[:10] if len(countries) > 10 else countries
+        default=countries
     )
     
     # Layoff scale filter
@@ -763,4 +763,5 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
