@@ -250,7 +250,7 @@ with tab1:
         nbins=50,
         title='Distribusi Total PHK (Log Scale)',
         labels={'total_laid_off': 'Jumlah PHK', 'count': 'Frekuensi'},
-        color_discrete_sequence=['#667eea']
+        color_discrete_sequence=["#fb0303"]
     )
     fig1.update_xaxes(type="log")
     fig1.update_layout(height=500, showlegend=False)
@@ -763,3 +763,4 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
