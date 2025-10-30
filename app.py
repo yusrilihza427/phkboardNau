@@ -27,53 +27,147 @@ def load_custom_css(theme):
     if theme == "Dark":
         st.markdown("""
         <style>
-        .main {
-            background-color: #0e1117;
-            color: #fafafa;
+        html, body, [class*="css"] {
+            background-color: #0e1117 !important;
+            color: #f1f1f1 !important;
+            transition: all 0.4s ease-in-out;
         }
-        .stMetric {
-            background-color: #262730;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+        /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #1a1a23 0%, #0e1117 100%) !important;
+            color: #fafafa !important;
+            border-right: 1px solid #2b2b36;
         }
-        .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            border-radius: 15px;
-            color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+        /* Metric Cards */
+        div[data-testid="stMetricValue"], div[data-testid="stMetricLabel"] {
+            color: #fafafa !important;
         }
-        h1, h2, h3 {
-            color: #fafafa;
+
+        div[data-testid="stMetric"] {
+            background: #1e1e26 !important;
+            border-radius: 12px !important;
+            padding: 20px 10px !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        div[data-testid="stMetric"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Tabs and DataFrame */
+        .stTabs [role="tablist"] button {
+            background-color: #1e1e26 !important;
+            color: #fafafa !important;
+            border-radius: 8px;
+            margin-right: 6px;
+        }
+
+        .stTabs [role="tablist"] button[aria-selected="true"] {
+            background-color: #2c2f3a !important;
+            color: #ffffff !important;
+        }
+
+        .stDataFrame {
+            background-color: #1e1e26 !important;
+            color: #fafafa !important;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, label {
+            color: #fafafa !important;
+        }
+
+        /* Buttons */
+        button {
+            color: white !important;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            border: none !important;
+            border-radius: 10px !important;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #5568c9, #653d8f) !important;
+            transform: scale(1.03);
+        }
+
         </style>
         """, unsafe_allow_html=True)
-    else:
+
+    else:  # Light Mode
         st.markdown("""
         <style>
-        .main {
-            background-color: #ffffff;
-            color: #262730;
+        html, body, [class*="css"] {
+            background-color: #f9fafc !important;
+            color: #1a1a1a !important;
+            transition: all 0.4s ease-in-out;
         }
-        .stMetric {
-            background-color: #f0f2f6;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #ffffff 0%, #f3f4f7 100%) !important;
+            color: #1a1a1a !important;
+            border-right: 1px solid #e0e0e0;
         }
-        .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            border-radius: 15px;
-            color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+        /* Metric Cards */
+        div[data-testid="stMetricValue"], div[data-testid="stMetricLabel"] {
+            color: #1a1a1a !important;
         }
-        h1, h2, h3 {
-            color: #262730;
+
+        div[data-testid="stMetric"] {
+            background: #ffffff !important;
+            border-radius: 12px !important;
+            padding: 20px 10px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        div[data-testid="stMetric"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Tabs and DataFrame */
+        .stTabs [role="tablist"] button {
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            border-radius: 8px;
+            margin-right: 6px;
+        }
+
+        .stTabs [role="tablist"] button[aria-selected="true"] {
+            background-color: #eceffd !important;
+            color: #2c3e9e !important;
+        }
+
+        .stDataFrame {
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, label {
+            color: #1a1a1a !important;
+        }
+
+        /* Buttons */
+        button {
+            color: white !important;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            border: none !important;
+            border-radius: 10px !important;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #5568c9, #653d8f) !important;
+            transform: scale(1.03);
+        }
+
         </style>
         """, unsafe_allow_html=True)
+
 
 # Load data with caching
 @st.cache_data
@@ -763,5 +857,6 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
