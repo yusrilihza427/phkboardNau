@@ -151,8 +151,8 @@ except Exception as e:
 
 # Sidebar
 with st.sidebar:
-    st.image("https://img.icons8.com/fluency/96/000000/business-report.png", width=80)
-    st.title("🎛️ Kontrol Panel")
+    st.image("https://chatgpt.com/s/m_6903b05ed9dc819195145c08e0ee6e2d", width=100)
+    st.title("")
     
     # Theme toggle
     st.markdown("---")
@@ -807,6 +807,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
