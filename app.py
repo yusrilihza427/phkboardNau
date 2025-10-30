@@ -150,13 +150,19 @@ except Exception as e:
     st.stop()
 
 # Sidebar
-import base64
-
-# Baca file gambar dan ubah jadi base64 string
 with open("nauphk.png", "rb") as img_file:
     img_bytes = base64.b64encode(img_file.read()).decode()
 
-# Sidebar logo di tengah
+# Ambil preferensi tema pengguna (default 'light' jika tidak diketahui)
+theme = st.get_option("theme.base") or "light"
+
+# Tentukan efek blending sesuai mode
+if theme == "dark":
+    blend_mode = "lighten"  # supaya terang di mode gelap
+else:
+    blend_mode = "normal"   # tampil natural di mode terang
+
+# Tampilkan di sidebar
 with st.sidebar:
     st.markdown(
         f"""
@@ -164,13 +170,13 @@ with st.sidebar:
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 15px;
+            margin-top: -5px;   /* geser lebih ke atas */
             margin-bottom: 10px;
         ">
             <img 
                 src="data:image/png;base64,{img_bytes}" 
-                width="150"
-                style="background-color: transparent; mix-blend-mode: lighten;"
+                width="140"
+                style="background-color: transparent; mix-blend-mode: {blend_mode};"
             >
         </div>
         """,
@@ -830,6 +836,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
