@@ -154,7 +154,7 @@ with st.sidebar:
     st.markdown(
         """
         <div style="display: flex; justify-content: center;">
-            <img src="Gambar1.jpg" width="130">
+            <img src="pngPHK.png" width="130">
         </div>
         """,
         unsafe_allow_html=True
@@ -813,6 +813,7 @@ st.markdown("""
     <p>Dibuat dengan ❤️ menggunakan Streamlit & Plotly</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
